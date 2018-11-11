@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="7dbeaf4b-a411-4302-8327-733336f49b8c" ChangeDateTime="11/09/2018 21:57:33">
+    <Property Name="ElementName" Value="[dbo].[Administrador].[Nomr]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Administrador]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Nome" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3c8cfbf8-b9bb-4e03-ac3a-ca583b58b82c" ChangeDateTime="11/09/2018 22:26:01">
+    <Property Name="ElementName" Value="[dbo].[Fornecedor].[  TelefoneCel2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Fornecedor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TelefoneCel2" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f1603dc-f42f-4166-9fdb-40537995abf3" ChangeDateTime="11/09/2018 22:26:20">
+    <Property Name="ElementName" Value="[dbo].[Fornecedor].[ TelefoneCel1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Fornecedor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TelefoneCel1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="94b87450-38e8-4b3b-baf4-d5313fc5acdd" ChangeDateTime="11/09/2018 23:01:55">
+    <Property Name="ElementName" Value="[dbo].[Preco].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Preco]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServicoNom" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="642f1d92-09e6-4cac-9da6-ae2bec27515f" ChangeDateTime="11/09/2018 23:37:21">
+    <Property Name="ElementName" Value="[dbo].[Preco].[ServicoNom]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Preco]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="idServico" />
+  </Operation>
+</Operations>

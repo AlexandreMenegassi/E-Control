@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EControl", "EControl\EControl.csproj", "{E4E17371-D668-45B0-980E-88C98DC1C8A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EControl", "EControl\EControl.csproj", "{E4E17371-D668-45B0-980E-88C98DC1C8A0}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{BC24F015-05FE-4D59-BD34-1855DB6D6C65}"
 EndProject

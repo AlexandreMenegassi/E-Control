@@ -31,6 +31,7 @@ namespace EControl
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<Models.EControlContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -56,7 +57,7 @@ namespace EControl
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Login}");
             });
         }
     }

@@ -2,12 +2,13 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="teste">
-    <div class="col-md-4 ">
+@model UsuarioLogin
 
-        <form class="form-signin">
-            <img class="mb-4" src="~/images/Gerenciador.png" alt="" width="350" height="300>
-            <h1 class="h4 mb-4 font-weight-normal-"><font style="center-align: inherit;"><br /><br />Por favor, insira suas credênciais<br /><br /></font></h1>
+<div class="">
+    <div class="col-md-4 ">
+        <form asp-controller="Home" asp-action="IndexADM" method="post" class="form-signin">
+            <img class="mb-4" src="~/images/Gerenciador.png" alt="" width="350" height="300">
+            <h1 class="h4 mb-4 font-weight-normal-"><br /><br />Por favor, insira suas credênciais<br /><br /></h1>
 
             <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus=""><br />
             <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""><br />

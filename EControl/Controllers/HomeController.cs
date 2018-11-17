@@ -10,7 +10,7 @@ namespace EControl.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult IndexADM()
         {
             return View();
         }

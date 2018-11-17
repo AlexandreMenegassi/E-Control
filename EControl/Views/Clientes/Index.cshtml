@@ -4,92 +4,98 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<main role="main" class="col-md-10 ml-sm-auto col-lg-12 px-4">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sobrenome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sexo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nascimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EnderecoNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TelefoneCel)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TelefoneRes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Complemento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Profissao)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sobrenome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnderecoNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelefoneCel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelefoneRes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Complemento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profissao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h2>Lista de Clientes</h2>
+    <hr />
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sobrenome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Sexo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nascimento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Endereco)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EnderecoNum)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TelefoneCel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TelefoneRes)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Complemento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Profissao)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sobrenome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sexo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nascimento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Endereco)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EnderecoNum)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TelefoneCel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TelefoneRes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Complemento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Profissao)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Remover</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a asp-action="Create" class="btn btn-default">Cadastrar Cliente</a>
+    <a asp-controller="Home" asp-action="IndexADM" class="btn btn-default">Voltar</a>
+</main>

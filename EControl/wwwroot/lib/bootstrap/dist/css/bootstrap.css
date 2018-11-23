@@ -5697,7 +5697,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
     .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
-        background-color: #080808;
+        background-colo:orange;
     }
 
     .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {

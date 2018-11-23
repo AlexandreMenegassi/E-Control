@@ -57,7 +57,7 @@ namespace EControl
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Login}");
+                    template: "{controller=Login}/{action=Login}");
             });
         }
     }

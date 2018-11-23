@@ -15,6 +15,16 @@ namespace EControl.Controllers
             return View();
         }
 
+        public IActionResult IndexCLI()
+        {
+            return View();
+        }
+
+        public IActionResult IndexFUN()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

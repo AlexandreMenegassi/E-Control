@@ -36,19 +36,8 @@ namespace EControl.Controllers
 
                 if (us.Nome == "admin@admin" && us.Senha == "123456")
                 {
-                    return RedirectToAction("IndexADM", "Home");
-                } else
-                
-                if(us.Nome == "cliente@cliente" && us.Senha == "123456")
-                {
-                    return RedirectToAction("IndexCLI", "Home");
-                } else
-
-                if (us.Nome == "funcionario@funcionario" && us.Senha == "123456")
-                {
-                    return RedirectToAction("IndexFUN", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
-
             }
             return View(us);
         }

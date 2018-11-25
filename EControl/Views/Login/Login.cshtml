@@ -1,4 +1,4 @@
-﻿@model EControl.Models.UsuarioLogin
+﻿@model EControl.Models.Usuario
 
 @{
     ViewData["Title"] = "Login";
@@ -14,8 +14,8 @@
             <div class="opa">
                 <h1 class="h4 mb-4 font-weight-normal-"><br /><br />Por favor, insira suas credênciais<br /><br /></h1>
             </div>
-            <input asp-for="Nome" type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus=""><br />
-            <input asp-for="Senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""><br />
+            <input asp-for="Login" type="text" id="inputLogin" class="form-control" required="" autofocus=""><br />
+            <input asp-for="Password" type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""><br />
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="entrar" />
         </form>
     </div>

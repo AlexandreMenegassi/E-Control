@@ -16,11 +16,13 @@ namespace EControl.Models
         }
 
         public virtual DbSet<Administrador> Administrador { get; set; }
+        public virtual DbSet<Agenda> Agenda { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Fornecedor> Fornecedor { get; set; }
         public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Preco> Preco { get; set; }
         public virtual DbSet<Servico> Servico { get; set; }
+        public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,6 +52,26 @@ namespace EControl.Models
                 entity.Property(e => e.TelefoneCel).IsUnicode(false);
 
                 entity.Property(e => e.TelefoneRes).IsUnicode(false);
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Administrador)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK_Administrador_Usuario");
+            });
+
+            modelBuilder.Entity<Agenda>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.DataFim).HasColumnType("datetime");
+
+                entity.Property(e => e.DataInicio).HasColumnType("datetime");
+
+                entity.Property(e => e.IdCliente).HasMaxLength(10);
+
+                entity.Property(e => e.IdFuncionario).HasMaxLength(10);
+
+                entity.Property(e => e.IdServico).HasMaxLength(10);
             });
 
             modelBuilder.Entity<Cliente>(entity =>
@@ -127,11 +149,15 @@ namespace EControl.Models
 
             modelBuilder.Entity<Preco>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
                 entity.Property(e => e.Custo).HasColumnType("money");
 
-                entity.Property(e => e.ServicoNom).IsUnicode(false);
-
-                entity.Property(e => e.Valor).HasColumnType("money");
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.Preco)
+                    .HasForeignKey<Preco>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Preco_Servico");
 
                 entity.HasOne(d => d.IdFuncionarioNavigation)
                     .WithMany(p => p.Preco)
@@ -148,6 +174,21 @@ namespace EControl.Models
                 entity.Property(e => e.TipoPag).IsUnicode(false);
 
                 entity.Property(e => e.Valor).HasColumnType("money");
+            });
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.HasIndex(e => e.Login)
+                    .HasName("UQ__Usuario__5E55825B3DE08408")
+                    .IsUnique();
+
+                entity.Property(e => e.Login)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
         }
     }

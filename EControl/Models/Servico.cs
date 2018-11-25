@@ -11,5 +11,7 @@ namespace EControl.Models
         public decimal? Custo { get; set; }
         public double? Desconto { get; set; }
         public string TipoPag { get; set; }
+
+        public Preco Preco { get; set; }
     }
 }

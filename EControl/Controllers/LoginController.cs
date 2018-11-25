@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using EControl.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Http;
+using EControl.Utils;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace EControl.Controllers
@@ -27,19 +28,20 @@ namespace EControl.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(UsuarioLogin us)
+        public async Task<IActionResult> Login(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                //_context.Add(us);
-                //await _context.SaveChangesAsync();
+                usuario = _context.Usuario.Where(u => u.Login == usuario.Login && u.Password == usuario.Password).FirstOrDefault();
 
-                if (us.Nome == "admin@admin" && us.Senha == "123456")
+                if (usuario != null)
                 {
+                    HttpContext.Session.SetObject("Usuario", usuario);
+                    HttpContext.Session.SetInt32("Usuario.NivelDeAcesso", usuario.NivelDeAcesso ?? 0);
                     return RedirectToAction("Index", "Home");
                 }
             }
-            return View(us);
+            return View();
         }
     }
 }

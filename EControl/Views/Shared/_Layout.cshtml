@@ -6,10 +6,11 @@
     <script type="text/javascript" src="~/js/TweenMax.min.js"></script>
     <script type="text/javascript" src="~/js/jquery-1.8.3.min.js"></script>
 
+
     <title>E-Control</title>
     <style>
         body {
-            margin: 0;
+            margin: auto;
             background-color: #369;
             overflow: auto;
         }
@@ -146,13 +147,17 @@
             font-size: 25px;
             font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         }
+
+        .table-responsive {
+            background-color:yellow;
+        }
     </style>
 </head>
 
-<body link="#FFFFFF">
+<body>
 
     <!--header-->
-    <div style="width:100%; height:80px; overflow:hidden; margin: 0 auto; background-color:#333">
+    <div style="width:100%; height:80px; overflow:hidden; margin: auto; background-color:#333">
         <div style="width:750px; height:80px; margin: 0 auto; overflow:hidden; position:relative">
             <div id="caption" style="height:44px; margin-top:20px;float:left; margin-left:12px; position:absolute"> E-Control </div>
             <div id="backbutton" style="height:44px; width:44px; margin-top:15px; float:left; position:absolute"> <img src="~/images/backbtn.png" width="44" height="44" /> </div>
@@ -161,14 +166,7 @@
     </div>
 
     @RenderBody()
-
-    <!--footer-->
-    <div style="width:100%; height:220px; overflow:hidden; margin: 0 auto; background-color:#333; margin-top:20px;">
-        <div style="width:750px; height:80px; margin: 0 auto;">
-            <p style="text-align:center; color:#FFF; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:x-small"> &copy; 2018 E-Control </p>           
-        </div>
-    </div>
-
+    
     <script type="text/javascript">
         $(document).ready(function () {
             TweenLite.to($("#caption"), 2, { css: { top: 0 }, delay: 1, ease: Power2.easeOut });

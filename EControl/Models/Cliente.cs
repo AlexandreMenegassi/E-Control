@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EControl.Models
 {
@@ -9,6 +10,7 @@ namespace EControl.Models
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Sexo { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? Nascimento { get; set; }
         public string Endereco { get; set; }
         public string EnderecoNum { get; set; }

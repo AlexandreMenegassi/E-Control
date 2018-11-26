@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
 }
 
 <main role="main" class="col-md-5 ml-sm-auto col-lg-12 px-4">
@@ -81,7 +82,7 @@
         </dl>
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Delete" class="btn btn-default" />
+            <input type="submit" value="Remover Cliente" class="btn btn-default" />
             <a asp-action="Index" class="btn btn-default">Voltar</a>
         </form>
     </div>

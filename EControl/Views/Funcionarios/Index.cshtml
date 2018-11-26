@@ -2,11 +2,13 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
 }
 
 <main role="main" class="col-md-10 ml-sm-auto col-lg-12 px-4">
 
     <h2>Lista de Funcionarios</h2>
+    <a asp-action="Create" class="btn btn-default">Cadastrar Funcionario</a>
     <hr />
     <div class="table-responsive">
 
@@ -90,6 +92,4 @@
             </tbody>
         </table>
     </div>
-    <a asp-action="Create" class="btn btn-default">Cadastrar Funcionario</a>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-default">Voltar</a>
 </main>

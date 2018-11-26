@@ -2,9 +2,9 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
 }
 
-<main role="main" class="col-md-5 ml-sm-auto col-lg-12 px-4">
 
     <h2>Preencha os Dados</h2>
     <hr />
@@ -74,7 +74,7 @@
             </div>
         </form>
     </div>
-</main>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

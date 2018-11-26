@@ -1,17 +1,39 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!--buttons-->
 <div style="width:750px; height:450px; overflow:hidden; margin: 0 auto; position:relative; margin-top:35px;">
+    @{int? acesso = HttpContextAccessor.HttpContext.Session.GetInt32("Usuario.NivelDeAcesso"); }
+    @if (acesso >= 1){
+        <a href="~/Clientes/Index" target="main"><div id="btn1" style="float:left"> <p> Clientes </p> </div> </a>
+    }
 
-    <a href="~/Clientes/Index" target="main"><div id="btn1" style="float:left"> <p> Clientes </p> </div> </a>
-    <a href="2.html" target="main"><div id="btn2" style="float:left"> <p> Caixa </p> </div> </a>
-    <a href="3.html" target="main"><div id="btn3" style="float:left"> <p> Agenda </p> </div> </a>
-    <a href="~/Fornecedor/Index" target="main"><div id="btn4" style="float:left"> <p> Fornecedor </p> </div> </a>
-    <a href="~/Servico/Index" target="main"><div id="btn5" style="float:left"> <p> Serviços </p> </div> </a>
-    <a href="~/Funcionarios/Index" target="main"><div id="btn6" style="float:left"> <p> Funcionario </p> </div> </a>
+    @if (acesso >= 3){
+        <a href="2.html" target="main"><div id="btn2" style="float:left"> <p> Caixa </p> </div> </a>
+    }
+
+    @if (acesso >= 1){
+        <a href="3.html" target="main"><div id="btn3" style="float:left"> <p> Agenda </p> </div> </a>
+    }
+
+    @if (acesso >= 3){
+        <a href="~/Fornecedor/Index" target="main"><div id="btn4" style="float:left"> <p> Fornecedor </p> </div> </a>
+    }
+
+    @if (acesso >= 2){
+        <a href="~/Servico/Index" target="main"><div id="btn5" style="float:left"> <p> Serviços </p> </div> </a>
+    }
+
+    @if (acesso >= 3){
+        <a href="~/Funcionarios/Index" target="main"><div id="btn6" style="float:left"> <p> Funcionario </p> </div> </a>
+    }
+
 
     <div id="content" style="position:absolute"><iframe name="main" frameborder="0" width="750" height="450"></iframe>  </div>
 </div>

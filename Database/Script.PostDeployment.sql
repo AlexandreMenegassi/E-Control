@@ -16,3 +16,10 @@ begin
 end
 go
 
+if(not exists(select 1 from Usuario where NivelDeAcesso = 3))
+begin
+	insert into Administrador (Login, Password, NivelDeAcesso)
+	values('admin','123456',3)
+end
+go
+

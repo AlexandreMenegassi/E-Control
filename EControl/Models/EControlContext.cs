@@ -61,8 +61,6 @@ namespace EControl.Models
 
             modelBuilder.Entity<Agenda>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.DataFim).HasColumnType("datetime");
 
                 entity.Property(e => e.DataInicio).HasColumnType("datetime");
@@ -76,8 +74,6 @@ namespace EControl.Models
 
             modelBuilder.Entity<Cliente>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Complemento).IsUnicode(false);
 
                 entity.Property(e => e.Email).IsUnicode(false);

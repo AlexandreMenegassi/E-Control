@@ -23,12 +23,6 @@
                     <th>
                         Custo
                     </th>
-                    <th>
-                        Desconto
-                    </th>
-                    <th>
-                        Tipo de Pagamento
-                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -46,12 +40,6 @@
                             @Html.DisplayFor(modelItem => item.Custo)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Desconto)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TipoPag)
-                        </td>
-                        <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                             <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                             <a asp-action="Delete" asp-route-id="@item.Id">Remover</a>
@@ -61,5 +49,5 @@
             </tbody>
         </table>
     </div>
-    <a asp-action="Create" class="btn btn-default">Cadastrar Cliente</a>
+    <a asp-action="Create" class="btn btn-default">Cadastrar Serviço</a>
 </main>

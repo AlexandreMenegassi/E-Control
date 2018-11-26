@@ -117,12 +117,46 @@
             text-align: left;
         }
 
+        #btn7 {
+            background: #4169E1;
+            height: 200px;
+            width: 200px;
+            position: relative;
+            margin-left: 10px;
+            margin-top: 30px;
+            left: 900px;
+            cursor: pointer;
+            color: #FFF;
+            font-size: 25px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            line-height: 300px;
+            padding-left: 10px;
+            text-align: left;
+        }
+
+        #btn8 {
+            background: #3CB371;
+            height: 200px;
+            width: 200px;
+            position: relative;
+            margin-left: 10px;
+            margin-top: 30px;
+            left: 900px;
+            cursor: pointer;
+            color: #FFF;
+            font-size: 25px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            line-height: 300px;
+            padding-left: 10px;
+            text-align: left;
+        }
+
         #content {
             background: #369;
-            height: 480px;
+            height: 675px;
             width: 750px;
             position: relative;
-            top: 500px;
+            top: 675px;
             z-index: 0;
         }
 
@@ -146,10 +180,6 @@
             color: #FFF;
             font-size: 25px;
             font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-        }
-
-        .table-responsive {
-            background-color:yellow;
         }
     </style>
 </head>
@@ -176,6 +206,8 @@
             TweenLite.to($("#btn4"), 2, { css: { left: 0 }, delay: 3.5, ease: Power2.easeOut });
             TweenLite.to($("#btn5"), 2, { css: { left: 20 }, delay: 4, ease: Power2.easeOut });
             TweenLite.to($("#btn6"), 2, { css: { left: 40 }, delay: 4.5, ease: Power2.easeOut });
+            TweenLite.to($("#btn7"), 2, { css: { left: 0 }, delay: 5, ease: Power2.easeOut });
+            TweenLite.to($("#btn8"), 2, { css: { left: 20 }, delay: 5.5, ease: Power2.easeOut });
 
         });
 
@@ -227,8 +259,24 @@
             $("#pagecaption").text("Funcionarios Cadastrados");
         });
 
+        $("#btn7").click(function () {
+            TweenLite.to($("#content"), 0.5, { css: { top: 0 }, ease: Power2.easeOut });
+            TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
+            TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
+            TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
+            $("#pagecaption").text("Adicionar um Serviço");
+        });
+
+        $("#btn8").click(function () {
+            TweenLite.to($("#content"), 0.5, { css: { top: 0 }, ease: Power2.easeOut });
+            TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
+            TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
+            TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
+            $("#pagecaption").text("Adicionar um Gastos");
+        });
+
         $("#backbutton").click(function () {
-            TweenLite.to($("#content"), 1, { css: { top: 500 }, ease: Power2.easeIn });
+            TweenLite.to($("#content"), 1, { css: { top: 675 }, ease: Power2.easeIn });
             TweenLite.to($("#backbutton"), 1, { css: { left: 760, rotation: 0 }, ease: Power2.easeIn });
             TweenLite.to($("#pagecaption"), 1, { css: { top: -60 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 0 }, ease: Power2.easeOut });

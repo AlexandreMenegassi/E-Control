@@ -1,0 +1,43 @@
+﻿@model EControl.Models.Despesa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
+}
+
+<main role="main" class="col-md-5 ml-sm-auto col-lg-12 px-4">
+
+    <h2>Descrição do Gasto</h2>
+    <hr />
+    <div class="col-md-3">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Custo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Custo)
+            </dd>
+        </dl>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Editar</a>
+        <a asp-action="Index" class="btn btn-default">Voltar</a>
+    </div>
+</main>

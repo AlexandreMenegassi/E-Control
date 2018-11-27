@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EControl.Models.Preco>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
+}
+
+
+<main role="main" class="col-md-10 ml-sm-auto col-lg-12 px-4">
+
+    <h2>Lista de Despeza</h2>
+    <hr />
+    <div class="table-responsive">
+
+        <div class="table-responsive">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Serviços
+                        </th>
+                        <th>
+                            Valor
+                        </th>
+                        <th>
+                            Desconto
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                        <th>
+                            Funcionário
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Custo)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Custo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Custo)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a asp-action="Create" class="btn btn-default">Adicionar Serviço Diário</a>
+</main>
+
+
+
+<select class="simple basic">
+    <option>@Html.DisplayFor(modelItem => item.IdFuncionarioNavigation.Nome)</option>
+</select>

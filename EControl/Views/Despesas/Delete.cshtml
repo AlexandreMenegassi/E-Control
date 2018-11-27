@@ -1,0 +1,47 @@
+﻿@model EControl.Models.Despesa
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
+}
+
+<main role="main" class="col-md-5 ml-sm-auto col-lg-12 px-4">
+
+    <h2>Remover Gasto</h2>
+    <hr />
+    <div class="col-md-3">
+        <h4>Tem certeza de que deseja remover este gasto?</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Valor)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Custo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Custo)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <a asp-action="Index" class="btn btn-default">Voltar</a>
+        </form>
+    </div>
+</main>

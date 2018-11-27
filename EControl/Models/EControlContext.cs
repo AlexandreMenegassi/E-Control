@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using EControl.Models;
 
 namespace EControl.Models
 {
@@ -187,5 +188,7 @@ namespace EControl.Models
                     .IsUnicode(false);
             });
         }
+
+        public DbSet<EControl.Models.Despesa> Despesa { get; set; }
     }
 }

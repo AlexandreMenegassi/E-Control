@@ -49,15 +49,16 @@ namespace EControl.Controllers
         // GET: Clientes/Create
         public IActionResult Create()
         {
-            return View();
+            Cliente cliente = new Cliente();
+            cliente.IdUsuarioNavigation = new Usuario();
+            cliente.IdUsuarioNavigation.NivelDeAcesso = 1;
+            return View(cliente);
         }
 
         // POST: Clientes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,Sexo,Nascimento,Endereco,EnderecoNum,TelefoneCel,TelefoneRes,Email,Complemento,Profissao")] Cliente cliente)
+        public async Task<IActionResult> Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {

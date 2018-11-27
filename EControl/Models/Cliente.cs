@@ -17,5 +17,8 @@ namespace EControl.Models
         public string Email { get; set; }
         public string Complemento { get; set; }
         public string Profissao { get; set; }
+        public int? IdUsuario { get; set; }
+
+        public Usuario IdUsuarioNavigation { get; set; }
     }
 }

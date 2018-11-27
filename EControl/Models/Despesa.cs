@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace EControl.Models
 {
@@ -8,10 +7,10 @@ namespace EControl.Models
     {
         public int Id { get; set; }
         public string Descricao { get; set; }
-        public decimal Valor { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public decimal? Valor { get; set; }
         public DateTime? Data { get; set; }
-        public decimal Custo { get; set; }
+        public decimal? Custo { get; set; }
+
+        public Fornecedor IdNavigation { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace EControl.Controllers
 {
     public class DespesasController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public DespesasController(EControlContext context)
+        public DespesasController(EcontrolContext context)
         {
             _context = context;
         }

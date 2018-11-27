@@ -40,7 +40,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.)
+                                @Html.DisplayFor(modelItem => item.IdServicoNavigation.Nome)
                             </td>
 
                             <td>
@@ -48,10 +48,12 @@
                             </td>
 
                             <td>
-                                @Html.DisplayFor(modelItem => item.Custo)
+                                
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Custo)
+                                
+                            </td>  <td>
+                                @Html.DisplayFor(modelItem => item.IdFuncionarioNavigation.Nome)
                             </td>
                         </tr>
                     }
@@ -64,6 +66,3 @@
 
 
 
-<select class="simple basic">
-    <option>@Html.DisplayFor(modelItem => item.IdFuncionarioNavigation.Nome)</option>
-</select>

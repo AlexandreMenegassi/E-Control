@@ -11,9 +11,9 @@ namespace EControl.Controllers
 {
     public class ServicoController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public ServicoController(EControlContext context)
+        public ServicoController(EcontrolContext context)
         {
             _context = context;
         }

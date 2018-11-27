@@ -12,9 +12,9 @@ namespace EControl.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public LoginController(EControlContext context)
+        public LoginController(EcontrolContext context)
         {
             _context = context;
         }

@@ -11,9 +11,9 @@ namespace EControl.Views
 {
     public class UsuariosController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public UsuariosController(EControlContext context)
+        public UsuariosController(EcontrolContext context)
         {
             _context = context;
         }

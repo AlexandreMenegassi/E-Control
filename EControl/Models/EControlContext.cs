@@ -96,6 +96,11 @@ namespace EControl.Models
                 entity.Property(e => e.TelefoneCel).IsUnicode(false);
 
                 entity.Property(e => e.TelefoneRes).IsUnicode(false);
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Cliente)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK_Cliente_Usuario");
             });
 
             modelBuilder.Entity<Despesa>(entity =>
@@ -167,6 +172,11 @@ namespace EControl.Models
                 entity.Property(e => e.TelefoneCel).IsUnicode(false);
 
                 entity.Property(e => e.TelefoneRes).IsUnicode(false);
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Funcionario)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK_Funcionario_Usuario");
             });
 
             modelBuilder.Entity<Preco>(entity =>
@@ -196,7 +206,7 @@ namespace EControl.Models
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasIndex(e => e.Login)
-                    .HasName("UQ__Usuario__5E55825B76ED1A4D")
+                    .HasName("UQ__Usuario__5E55825B3DE08408")
                     .IsUnique();
 
                 entity.Property(e => e.Login)

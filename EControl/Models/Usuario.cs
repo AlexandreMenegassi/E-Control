@@ -8,6 +8,8 @@ namespace EControl.Models
         public Usuario()
         {
             Administrador = new HashSet<Administrador>();
+            Cliente = new HashSet<Cliente>();
+            Funcionario = new HashSet<Funcionario>();
         }
 
         public int Id { get; set; }
@@ -16,5 +18,7 @@ namespace EControl.Models
         public int? NivelDeAcesso { get; set; }
 
         public ICollection<Administrador> Administrador { get; set; }
+        public ICollection<Cliente> Cliente { get; set; }
+        public ICollection<Funcionario> Funcionario { get; set; }
     }
 }

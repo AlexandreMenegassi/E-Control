@@ -45,7 +45,9 @@ namespace EControl.Controllers
         // GET: Funcionarios/Create
         public IActionResult Create()
         {
-            return View();
+            Funcionario funcionario = new Funcionario();
+            funcionario.IdUsuarioNavigation = new Usuario(); 
+            return View(funcionario);
         }
 
         // POST: Funcionarios/Create
@@ -53,7 +55,7 @@ namespace EControl.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,Sexo,Nascimento,Endereco,EnderecoNum,TelefoneCel,TelefoneRes,Email,Cargo")] Funcionario funcionario)
+        public async Task<IActionResult> Create( Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {

@@ -10,44 +10,45 @@
 <!--buttons-->
 <div style="width:750px; height:675px; overflow:hidden; margin: 0 auto; position:relative; margin-top:35px;">
     @{int? acesso = HttpContextAccessor.HttpContext.Session.GetInt32("Usuario.NivelDeAcesso"); }
-    @if (acesso >= 1)
+
+    @if (acesso >= 3)
     {
         <a href="~/Clientes/Index" target="main"><div id="btn1" style="float:left"> <p> Clientes </p> </div> </a>
-    }
-
-    @if (acesso >= 3)
-    {
         <a href="~/Caixa/Index" target="main"><div id="btn2" style="float:left"> <p> Caixa </p> </div> </a>
-    }
-
-    @if (acesso >= 1)
-    {
-        <a href="~/Agenda/Index" target="main"><div id="btn3" style="float:left"> <p> Agenda </p> </div> </a>
-    }
-
-    @if (acesso >= 3)
-    {
+        <a href="3.html" target="main"><div id="btn3" style="float:left"> <p> Agenda </p> </div> </a>
         <a href="~/Fornecedor/Index" target="main"><div id="btn4" style="float:left"> <p> Fornecedor </p> </div> </a>
-    }
-
-    @if (acesso >= 2)
-    {
         <a href="~/Servico/Index" target="main"><div id="btn5" style="float:left"> <p> Preços </p> </div> </a>
-    }
-
-    @if (acesso >= 3)
-    {
         <a href="~/Funcionarios/Index" target="main"><div id="btn6" style="float:left"> <p> Funcionario </p> </div> </a>
-    }
-
-    @if (acesso >= 3)
-    {
         <a href="~/Preco/Index" target="main"><div id="btn7" style="float:left"> <p> Add Servico </p> </div> </a>
-    }
-
-    @if (acesso >= 3)
-    {
         <a href="~/Despesas/Index" target="main"><div id="btn8" style="float:left"> <p> Add Despesa </p> </div> </a>
+    }
+    else if (acesso >= 2)
+    {
+        <a href="~/Clientes/Index" target="main"><div id="btn1" style="float:left"> <p> Clientes </p> </div> </a>
+        <a href="3.html" target="main"><div id="btn2" style="float:left"> <p> Agenda </p> </div> </a>
+        <a href="~/Preco/Index" target="main"><div id="btn3" style="float:left"> <p> Add Servico </p> </div> </a>
+        <a href="#" target="main"><div id="btn4" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn5" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn6" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn4" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn5" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn6" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn7" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn8" style="float:left"> <p> Vazio </p> </div> </a>
+    }
+    else if (acesso >= 1)
+    {
+        <a href="~/Clientes/Index" target="main"><div id="btn1" style="float:left"> <p> Clientes </p> </div> </a>
+        <a href="3.html" target="main"><div id="btn2" style="float:left"> <p> Agenda </p> </div> </a>
+        <a href="~/Servico/Index" target="main"><div id="btn3" style="float:left"> <p> Preços </p> </div> </a>
+        <a href="#" target="main"><div id="btn4" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn5" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn6" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn4" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn5" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn6" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn7" style="float:left"> <p> Vazio </p> </div> </a>
+        <a href="#" target="main"><div id="btn8" style="float:left"> <p> Vazio </p> </div> </a>
     }
 
 

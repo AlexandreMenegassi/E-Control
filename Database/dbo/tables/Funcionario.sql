@@ -10,5 +10,6 @@
     [TelefoneCel] VARCHAR(MAX) NULL, 
     [TelefoneRes] VARCHAR(MAX) NULL, 
     [Email] VARCHAR(MAX) NULL, 
-    [Cargo] VARCHAR(MAX) NULL
+    [Cargo] VARCHAR(MAX) NULL, 
+    CONSTRAINT [FK_Funcionario_Usuario] FOREIGN KEY (Id) REFERENCES Usuario(Id)
 )

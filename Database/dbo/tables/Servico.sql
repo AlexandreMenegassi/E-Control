@@ -3,7 +3,5 @@
 	[Id] INT NOT NULL PRIMARY KEY identity(1,1), 
     [Nome] VARCHAR(MAX) NULL, 
     [Valor] MONEY NULL, 
-    [Custo] MONEY NULL, 
-    [Desconto] FLOAT NULL, 
-    [TipoPag] VARCHAR(MAX) NULL
+    [Custo] MONEY NULL
 )

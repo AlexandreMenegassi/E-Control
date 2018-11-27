@@ -1,0 +1,39 @@
+﻿@model EControl.Models.Preco
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutiFrame.cshtml";
+}
+
+<h2>Preencha os Dados</h2>
+<hr />
+
+<div class="col-md-3">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label">Escolha qual Serviço</label>
+            <label asp-for="IdServico" class="control-label"></label>
+            <select asp-for="IdServico" class="form-control" asp-items="ViewBag.IdServico"></select>
+        </div>
+        <!--
+        <div class="form-group">
+            <label class="control-label">Desconto</label>
+            <input asp-for="Desconto" class="form-control" />
+            <span asp-validation-for="Desconto" class="text-danger"></span>
+        </div>
+        -->
+        <div class="form-group">
+            <label class="control-label">Escolha o Funcionario</label>
+            <select asp-for="IdFuncionario" class="form-control" asp-items="ViewBag.IdFuncionario"></select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Salvar" class="btn btn-default" />
+            <a asp-action="Index" class="btn btn-default">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

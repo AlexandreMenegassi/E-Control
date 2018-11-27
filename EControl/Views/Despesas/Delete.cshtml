@@ -1,4 +1,4 @@
-﻿@model EControl.Models.Servico
+﻿@model EControl.Models.Despesa
 
 @{
     ViewData["Title"] = "Delete";
@@ -7,24 +7,29 @@
 
 <main role="main" class="col-md-5 ml-sm-auto col-lg-12 px-4">
 
-    <h2>Remover Serviço</h2>
+    <h2>Remover Gasto</h2>
     <hr />
     <div class="col-md-3">
-        <h4>Tem certeza de que deseja remover este serviço?</h4>
+        <h4>Tem certeza de que deseja remover este gasto?</h4>
         <hr />
-
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.Descricao)
             </dt>
             <dd>
-                @Html.DisplayFor(model => model.Nome)
+                @Html.DisplayFor(model => model.Descricao)
             </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Valor)
             </dt>
             <dd>
                 @Html.DisplayFor(model => model.Valor)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Data)
             </dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Custo)

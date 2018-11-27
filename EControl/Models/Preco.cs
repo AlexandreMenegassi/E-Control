@@ -12,6 +12,6 @@ namespace EControl.Models
         public int? IdFuncionario { get; set; }
 
         public Funcionario IdFuncionarioNavigation { get; set; }
-        public Servico IdNavigation { get; set; }
+        public Servico IdServicoNavigation { get; set; }
     }
 }

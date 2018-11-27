@@ -6,5 +6,5 @@
     [Desconto] FLOAT NULL, 
     [IdFuncionario] INT NULL, 
     CONSTRAINT [FK_Preco_ToTable] FOREIGN KEY ([IdFuncionario]) REFERENCES [Funcionario]([Id]), 
-    CONSTRAINT [FK_Preco_Servico] FOREIGN KEY (id) REFERENCES Servico(id)
+    CONSTRAINT [FK_Preco_Servico] FOREIGN KEY (idServico) REFERENCES Servico(id)
 )

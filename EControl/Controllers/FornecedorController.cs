@@ -11,9 +11,9 @@ namespace EControl.Controllers
 {
     public class FornecedorController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public FornecedorController(EControlContext context)
+        public FornecedorController(EcontrolContext context)
         {
             _context = context;
         }

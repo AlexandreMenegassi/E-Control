@@ -32,7 +32,7 @@ namespace EControl
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<Models.EControlContext>();
+            services.AddScoped<Models.EcontrolContext>();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
 

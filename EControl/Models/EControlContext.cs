@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EControl.Models
 {
-    public partial class EControlContext : DbContext
+    public partial class EcontrolContext : DbContext
     {
-        public EControlContext()
+        public EcontrolContext()
         {
         }
 
-        public EControlContext(DbContextOptions<EControlContext> options)
+        public EcontrolContext(DbContextOptions<EcontrolContext> options)
             : base(options)
         {
         }
@@ -18,6 +18,7 @@ namespace EControl.Models
         public virtual DbSet<Administrador> Administrador { get; set; }
         public virtual DbSet<Agenda> Agenda { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Despesa> Despesa { get; set; }
         public virtual DbSet<Fornecedor> Fornecedor { get; set; }
         public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Preco> Preco { get; set; }
@@ -29,7 +30,7 @@ namespace EControl.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EControl;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Econtrol;Trusted_Connection=True;");
             }
         }
 
@@ -97,6 +98,31 @@ namespace EControl.Models
                 entity.Property(e => e.TelefoneRes).IsUnicode(false);
             });
 
+            modelBuilder.Entity<Despesa>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Custo)
+                    .HasColumnName("custo")
+                    .HasColumnType("money");
+
+                entity.Property(e => e.Data)
+                    .HasColumnName("data")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Descricao).IsUnicode(false);
+
+                entity.Property(e => e.Valor)
+                    .HasColumnName("valor")
+                    .HasColumnType("money");
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.Despesa)
+                    .HasForeignKey<Despesa>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Nome_Fornecedor");
+            });
+
             modelBuilder.Entity<Fornecedor>(entity =>
             {
                 entity.Property(e => e.Cnpj)
@@ -145,20 +171,17 @@ namespace EControl.Models
 
             modelBuilder.Entity<Preco>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
                 entity.Property(e => e.Custo).HasColumnType("money");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Preco)
-                    .HasForeignKey<Preco>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Preco_Servico");
 
                 entity.HasOne(d => d.IdFuncionarioNavigation)
                     .WithMany(p => p.Preco)
                     .HasForeignKey(d => d.IdFuncionario)
                     .HasConstraintName("FK_Preco_ToTable");
+
+                entity.HasOne(d => d.IdServicoNavigation)
+                    .WithMany(p => p.Preco)
+                    .HasForeignKey(d => d.IdServico)
+                    .HasConstraintName("FK_Preco_Servico");
             });
 
             modelBuilder.Entity<Servico>(entity =>
@@ -167,15 +190,13 @@ namespace EControl.Models
 
                 entity.Property(e => e.Nome).IsUnicode(false);
 
-                entity.Property(e => e.TipoPag).IsUnicode(false);
-
                 entity.Property(e => e.Valor).HasColumnType("money");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasIndex(e => e.Login)
-                    .HasName("UQ__Usuario__5E55825B3DE08408")
+                    .HasName("UQ__Usuario__5E55825B76ED1A4D")
                     .IsUnique();
 
                 entity.Property(e => e.Login)

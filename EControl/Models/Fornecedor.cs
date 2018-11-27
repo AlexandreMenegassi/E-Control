@@ -15,5 +15,7 @@ namespace EControl.Models
         public string TelefoneCel2 { get; set; }
         public string Endereco { get; set; }
         public string DescricaoEmp { get; set; }
+
+        public Despesa Despesa { get; set; }
     }
 }

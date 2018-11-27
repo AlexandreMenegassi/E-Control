@@ -11,9 +11,10 @@ namespace EControl.Controllers
 {
     public class PrecoController : Controller
     {
-        private readonly EControlContext _context;
+        private readonly EcontrolContext _context;
 
-        public PrecoController(EControlContext context)
+        public PrecoController(EcontrolContext context)
+                            
         {
             _context = context;
         }
@@ -21,7 +22,9 @@ namespace EControl.Controllers
         // GET: Preco
         public async Task<IActionResult> Index()
         {
-            var eControlContext = _context.Preco.Include(p => p.IdFuncionarioNavigation);
+            var eControlContext = _context.Preco
+                .Include(p => p.IdFuncionarioNavigation)
+                .Include(p => p.IdServicoNavigation);
             return View(await eControlContext.ToListAsync());
         }
 
@@ -47,7 +50,8 @@ namespace EControl.Controllers
         // GET: Preco/Create
         public IActionResult Create()
         {
-            ViewData["IdFuncionario"] = new SelectList(_context.Funcionario, "Id", "Id");
+            ViewData["IdFuncionario"] = new SelectList(_context.Funcionario, "Id", "Nome");
+            ViewData["IdServico"] = new SelectList(_context.Servico, "Id", "Nome");
             return View();
         }
 
@@ -56,10 +60,12 @@ namespace EControl.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ServicoNom,Valor,Custo,Desconto,IdFuncionario")] Preco preco)
+        public async Task<IActionResult> Create(Preco preco)
         {
             if (ModelState.IsValid)
             {
+                decimal? custo = _context.Servico.Where(a => a.Id == preco.IdServico).Select(a => a.Valor).FirstOrDefault();
+                preco.Custo = custo;
                 _context.Add(preco);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

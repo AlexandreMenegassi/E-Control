@@ -9,22 +9,22 @@ using EControl.Models;
 
 namespace EControl.Controllers
 {
-    public class FuncionariosController : Controller
+    public class DespesasController : Controller
     {
         private readonly EcontrolContext _context;
 
-        public FuncionariosController(EcontrolContext context)
+        public DespesasController(EcontrolContext context)
         {
             _context = context;
         }
 
-        // GET: Funcionarios
+        // GET: Despesas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Funcionario.ToListAsync());
+            return View(await _context.Despesa.ToListAsync());
         }
 
-        // GET: Funcionarios/Details/5
+        // GET: Despesas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace EControl.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.Funcionario
+            var despesa = await _context.Despesa
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (funcionario == null)
+            if (despesa == null)
             {
                 return NotFound();
             }
 
-            return View(funcionario);
+            return View(despesa);
         }
 
-        // GET: Funcionarios/Create
+        // GET: Despesas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Funcionarios/Create
+        // POST: Despesas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Sobrenome,Sexo,Nascimento,Endereco,EnderecoNum,TelefoneCel,TelefoneRes,Email,Cargo")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("Id,Descricao,Valor,Data,Custo")] Despesa despesa)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(funcionario);
+                _context.Add(despesa);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionario);
+            return View(despesa);
         }
 
-        // GET: Funcionarios/Edit/5
+        // GET: Despesas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace EControl.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.Funcionario.FindAsync(id);
-            if (funcionario == null)
+            var despesa = await _context.Despesa.FindAsync(id);
+            if (despesa == null)
             {
                 return NotFound();
             }
-            return View(funcionario);
+            return View(despesa);
         }
 
-        // POST: Funcionarios/Edit/5
+        // POST: Despesas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Sobrenome,Sexo,Nascimento,Endereco,EnderecoNum,TelefoneCel,TelefoneRes,Email,Cargo")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,Valor,Data,Custo")] Despesa despesa)
         {
-            if (id != funcionario.Id)
+            if (id != despesa.Id)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace EControl.Controllers
             {
                 try
                 {
-                    _context.Update(funcionario);
+                    _context.Update(despesa);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FuncionarioExists(funcionario.Id))
+                    if (!DespesaExists(despesa.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace EControl.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionario);
+            return View(despesa);
         }
 
-        // GET: Funcionarios/Delete/5
+        // GET: Despesas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace EControl.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.Funcionario
+            var despesa = await _context.Despesa
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (funcionario == null)
+            if (despesa == null)
             {
                 return NotFound();
             }
 
-            return View(funcionario);
+            return View(despesa);
         }
 
-        // POST: Funcionarios/Delete/5
+        // POST: Despesas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var funcionario = await _context.Funcionario.FindAsync(id);
-            _context.Funcionario.Remove(funcionario);
+            var despesa = await _context.Despesa.FindAsync(id);
+            _context.Despesa.Remove(despesa);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FuncionarioExists(int id)
+        private bool DespesaExists(int id)
         {
-            return _context.Funcionario.Any(e => e.Id == id);
+            return _context.Despesa.Any(e => e.Id == id);
         }
     }
 }

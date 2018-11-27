@@ -181,6 +181,10 @@
             font-size: 25px;
             font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         }
+
+        #sair {
+
+        }
     </style>
 </head>
 
@@ -196,7 +200,7 @@
     </div>
 
     @RenderBody()
-    
+
     <script type="text/javascript">
         $(document).ready(function () {
             TweenLite.to($("#caption"), 2, { css: { top: 0 }, delay: 1, ease: Power2.easeOut });
@@ -216,7 +220,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Clientes Cadastrados");
+            $("#pagecaption").text("Verificar Agenda Diária");
         });
 
         $("#btn2").click(function () {
@@ -224,7 +228,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Serviços Financeiros");
+            $("#pagecaption").text("Clientes Cadastrados");
         });
 
         $("#btn3").click(function () {
@@ -248,7 +252,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Serviços Cadastrados");
+            $("#pagecaption").text("Adicionar Serviços Diários");
         });
 
         $("#btn6").click(function () {
@@ -256,7 +260,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Funcionarios Cadastrados");
+            $("#pagecaption").text("Adicionar Despesas Diárias");
         });
 
         $("#btn7").click(function () {
@@ -264,7 +268,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Adicionar um Serviço");
+            $("#pagecaption").text("Funcionarios Cadastrados");
         });
 
         $("#btn8").click(function () {
@@ -272,7 +276,7 @@
             TweenLite.to($("#backbutton"), 1, { css: { left: 650, rotation: -180 }, ease: Power2.easeOut });
             TweenLite.to($("#pagecaption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 90 }, ease: Power2.easeOut });
-            $("#pagecaption").text("Adicionar um Gastos");
+            $("#pagecaption").text("Serviços Financeiros");
         });
 
         $("#backbutton").click(function () {
@@ -281,8 +285,18 @@
             TweenLite.to($("#pagecaption"), 1, { css: { top: -60 }, ease: Power2.easeOut });
             TweenLite.to($("#caption"), 1, { css: { top: 0 }, ease: Power2.easeOut });
         });
+
+        $(function () {
+            $('#sair').on('click', function (event) {
+
+                if (!confirm('Pressione "OK" se deseja realmente sair.'))
+                    event.preventDefault();
+            });
+        });
+
     </script>
 
+    <center><button><a id='sair' href='../Login/Login'> Logout </a></button></center>
     @RenderSection("Scripts", required: false)
 
 </body>
